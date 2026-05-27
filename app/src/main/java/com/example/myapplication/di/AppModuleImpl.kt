@@ -7,6 +7,7 @@ import com.example.myapplication.data.repository.NoteRepositoryImpl
 import com.example.myapplication.domain.repository.NoteRepository
 import com.example.myapplication.domain.use_case.AddNote
 import com.example.myapplication.domain.use_case.DeleteNote
+import com.example.myapplication.domain.use_case.GetNote
 import com.example.myapplication.domain.use_case.GetNotes
 import com.example.myapplication.domain.use_case.NoteUseCases
 
@@ -30,7 +31,8 @@ class AppModuleImpl(
         NoteUseCases(
             getNotes = GetNotes(noteRepository),
             deleteNote = DeleteNote(noteRepository),
-            addNote = AddNote(noteRepository)
+            addNote = AddNote(noteRepository),
+            getNote = GetNote(noteRepository)
         )
     }
 }
