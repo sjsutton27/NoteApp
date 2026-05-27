@@ -32,7 +32,7 @@ class NotesViewModel(
             }
             is NotesEvent.RestoreNote -> {
                 viewModelScope.launch {
-                    
+
                 }
             }
             is NotesEvent.ToggleOrderSection -> {
