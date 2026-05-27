@@ -47,6 +47,7 @@ dependencies {
 
     // Compose BOM
     implementation(platform(libs.androidx.compose.bom.v20260501))
+    implementation(libs.material3)
     androidTestImplementation(platform(libs.androidx.compose.bom.v20260501))
 
     // Compose
@@ -61,6 +62,7 @@ dependencies {
     // Lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
 
     // Activity + Navigation
     implementation(libs.androidx.activity.compose)
