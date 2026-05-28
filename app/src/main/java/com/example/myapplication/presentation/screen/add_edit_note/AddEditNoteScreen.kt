@@ -27,7 +27,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -62,8 +61,8 @@ fun AddEditNoteScreen(
     )
 ) {
 
-    val titleState = viewModel.noteTitle.collectAsState().value
-    val contentState = viewModel.noteContent.collectAsState().value
+    val titleState = viewModel.noteTitle.value
+    val contentState = viewModel.noteContent.value
 
     val snackbarHostState = remember {
         SnackbarHostState()
@@ -142,7 +141,7 @@ fun AddEditNoteScreen(
                             .background(color = color)
                             .border(
                                 width = 3.dp,
-                                color = if (viewModel.noteColor.collectAsState().value == colorInt) {
+                                color = if (viewModel.noteColor.value == colorInt) {
                                     Color.Black
                                 } else {
                                     Color.Transparent

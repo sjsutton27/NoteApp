@@ -22,6 +22,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -40,7 +41,9 @@ fun NoteItem(
         modifier = modifier
     ){
         Canvas(
-            modifier = Modifier.matchParentSize(),
+            modifier = Modifier
+                .matchParentSize()
+                .graphicsLayer()
         ){
             val clipPath = Path().apply{
                 lineTo(x = size.width - cutCornerSize.toPx(), y = 0f)
@@ -78,7 +81,7 @@ fun NoteItem(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = note.title,
+                text = note.content,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 10,
@@ -86,11 +89,9 @@ fun NoteItem(
             )
         }
         IconButton(
-                onClick = {
-                    onDeleteClick
-                },
+            onClick = onDeleteClick,
             modifier = Modifier.align(Alignment.BottomEnd)
-        ){
+        ) {
             Icon(
                 imageVector = Icons.Default.Delete,
                 contentDescription = "Delete Note"

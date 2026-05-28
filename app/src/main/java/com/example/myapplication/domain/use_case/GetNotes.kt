@@ -1,11 +1,12 @@
 package com.example.myapplication.domain.use_case
 
-import androidx.room.Index
 import com.example.myapplication.domain.model.Note
 import com.example.myapplication.domain.repository.NoteRepository
 import com.example.myapplication.domain.util.NoteOrder
 import com.example.myapplication.domain.util.OrderType
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 
 class GetNotes(
@@ -43,6 +44,6 @@ class GetNotes(
                     }
                 }
             }
-        }
+        }.flowOn(Dispatchers.Default)
     }
 }

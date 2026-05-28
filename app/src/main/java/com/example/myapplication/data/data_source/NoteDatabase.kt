@@ -9,10 +9,11 @@ import com.example.myapplication.domain.model.Note
     entities = [Note::class],
     version = 1
 )
-abstract class NoteDatabase : RoomDatabase() {
+abstract class NoteDatabase: RoomDatabase() {
+
     abstract val noteDao: NoteDao
-    
-    companion object{
+
+    companion object {
         const val DATABASE_NAME = "notes_db"
     }
 }
